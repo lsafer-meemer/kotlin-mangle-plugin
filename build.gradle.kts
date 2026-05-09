@@ -4,7 +4,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.lsafer"
+group = "com.github.lsafer-meemer"
 version = "0.1.0"
 
 repositories {
@@ -33,9 +33,35 @@ publishing {
     publications {
         register<MavenPublication>("maven") {
             from(components["java"])
-            groupId = "com.lsafer"
+            groupId = "com.github.lsafer-meemer"
             artifactId = "kotlin-mangle-plugin"
             version = "0.1.0"
+            
+            pom {
+                name.set("Kotlin Mangle Plugin")
+                description.set("A Kotlin compiler plugin that enables function name mangling using the @Mangle annotation")
+                url.set("https://github.com/lsafer-meemer/kotlin-mangle-plugin")
+                
+                licenses {
+                    license {
+                        name.set("MIT")
+                        url.set("https://opensource.org/licenses/MIT")
+                    }
+                }
+                
+                developers {
+                    developer {
+                        id.set("lsafer-meemer")
+                        name.set("LSAFER MEEMER")
+                    }
+                }
+                
+                scm {
+                    connection.set("scm:git:https://github.com/lsafer-meemer/kotlin-mangle-plugin.git")
+                    developerConnection.set("scm:git:https://github.com/lsafer-meemer/kotlin-mangle-plugin.git")
+                    url.set("https://github.com/lsafer-meemer/kotlin-mangle-plugin")
+                }
+            }
         }
     }
 }
